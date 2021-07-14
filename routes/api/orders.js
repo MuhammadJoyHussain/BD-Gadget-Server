@@ -3,28 +3,27 @@ const router = express.Router();
 
 
 const Order = require('../../Models/Orders');
-// const Admin = require('../../Models/Admins');
+const Admin = require('../../Models/Admins');
 
 
-// router.get('/', (req, res) => {
-//     Admin.find({ email: req.query.email })
-//         .then(admins => {
-//             if (admins.length) {
-//                 Order.find()
-//                     .sort({ date: -1 })
-//                     .then(items => res.json(items))
-//             } else {
-//                 Order.find({ email: req.query.email })
-//                     .sort({ date: -1 })
-//                     .then(items => res.json(items))
-//             }
-//         })
+router.post('/customer', (req, res) => {
+    Admin.find({ email: req.body.email })
+        .then(admins => {
+            if (admins.length) {
+                Order.find({})
+                    .then(items => res.json(items))
+            } else {
+                Order.find({ email: req.body.email })
+                    .sort({ date: -1 })
+                    .then(items => res.json(items))
+            }
+        })
 
-// });
+});
 
 
 router.get('/', (req, res) => {
-    Order.find()
+    Order.find({})
         .sort({ date: -1 })
         .then(items => res.json(items))
 });
