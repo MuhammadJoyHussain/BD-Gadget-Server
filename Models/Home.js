@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 
 const ItemSchema = new Schema({
+    image: {
+        type: String,
+        required: true
+    },
     openandclose: {
         type: String,
         required: true

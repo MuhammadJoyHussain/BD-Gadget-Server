@@ -13,24 +13,13 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newHome = new Home({
+        image: req.body.img,
         openandclose: req.body.openandclose,
         location: req.body.location,
         phone: req.body.phone,
         story: req.body.story
     });
-
     newHome.save().then(item => res.json(item));
-});
-
-
-router.patch('/:id', (req, res) => {
-    Home.findOneAndUpdate(req.params.id),
-        {
-            $set: { openandclose: req.body.openandclose, location: req.body.location, phone: req.body.phone, story: req.body.story }
-        }
-        .then(result => {
-            console.log(result);
-        })
 });
 
 router.delete('/:id', (req, res) => {

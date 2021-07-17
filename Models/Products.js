@@ -12,7 +12,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    file: [],
+    image: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

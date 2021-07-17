@@ -3,11 +3,11 @@ const router = express.Router();
 
 const Admin = require('../../Models/Admins');
 
-
 router.post('/', (req, res) => {
     Admin.find({email: req.body.email})
         .then(items => res.send(items.length > 0))
 });
+
 
 router.delete('/:id', (req, res) => {
     Admin.findById(req.params.id)

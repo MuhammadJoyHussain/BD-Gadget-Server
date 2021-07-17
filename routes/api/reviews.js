@@ -14,13 +14,13 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    const newItem = new Review({
+    const newReview = new Review({
+        image: req.body.image,
         name: req.body.name,
         review: req.body.review
     });
-    newItem.save().then(item => res.json(item));
+    newReview.save().then(item => res.json(item));
 });
-
 
 router.delete('/:id', (req, res) => {
     Review.findById(req.params.id)

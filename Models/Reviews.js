@@ -3,12 +3,16 @@ const Schema = mongoose.Schema;
 
 
 //Create Schema
-const ItemSchema = new Schema({
+const ReviewSchema = new Schema({
     name: {
         type: String,
         required: true
     },
     review: {
+        type: String,
+        required: true
+    },
+    image: {
         type: String,
         required: true
     },
@@ -18,4 +22,4 @@ const ItemSchema = new Schema({
     }
 });
 
-module.exports = Review = mongoose.model('reviews', ItemSchema);
+module.exports = Product = mongoose.model('reviews', ReviewSchema);
