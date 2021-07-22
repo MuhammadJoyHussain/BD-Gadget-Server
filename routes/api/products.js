@@ -21,9 +21,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     const newProduct = new Product({
-        productName: req.body.productName,
-        price: req.body.price,
-        image: req.body.image
+        email: req.body.email
     });
     newProduct.save().then(product => {
         res.json(product)

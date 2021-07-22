@@ -5,7 +5,10 @@ const Admin = require('../../Models/Admins');
 
 router.post('/', (req, res) => {
     Admin.find({email: req.body.email})
-        .then(items => res.send(items.length > 0))
+        .then(items => {
+            console.log(items);
+            res.json(items.length > 0)
+        })
 });
 
 

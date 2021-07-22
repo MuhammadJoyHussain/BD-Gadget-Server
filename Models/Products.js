@@ -4,15 +4,7 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const ItemSchema = new Schema({
-    productName: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: String,
-        required: true
-    },
-    image: {
+    email: {
         type: String,
         required: true
     },

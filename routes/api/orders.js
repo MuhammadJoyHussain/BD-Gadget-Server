@@ -14,7 +14,6 @@ router.post('/customer', (req, res) => {
                     .then(items => res.json(items))
             } else {
                 Order.find({ email: req.body.email })
-                    .sort({ date: -1 })
                     .then(items => res.json(items))
             }
         })
