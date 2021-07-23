@@ -4,9 +4,16 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const ItemSchema = new Schema({
-    email: {
+    productName: {
         type: String,
         required: true
+    },
+    price: {
+        type: String,
+        required: true
+    },
+        image: {
+        type: String
     },
     date: {
         type: Date,

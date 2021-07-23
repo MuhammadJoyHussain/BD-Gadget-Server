@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const ItemSchema = new Schema({
     image: {
-        type: String,
-        required: true
+        type: String
     },
     openandclose: {
         type: String,
