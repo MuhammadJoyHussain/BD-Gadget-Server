@@ -4,7 +4,15 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const ItemSchema = new Schema({
-    productName: {
+    key: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    seller: {
         type: String,
         required: true
     },
@@ -12,7 +20,7 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-        image: {
+    img: {
         type: String
     },
     date: {

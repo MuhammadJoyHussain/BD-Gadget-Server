@@ -10,26 +10,23 @@ router.get('/', (req, res) => {
         .then(products => res.json(products))
 });
 
-
-router.get('/:id', (req, res) => {
-    Product.findById(req.params.id)
+router.get('/:key', (req, res) => {
+    Product.find(req.params.key)
         .then(products => res.json(products))
 });
 
-
-
-
 router.post('/', (req, res) => {
     const newProduct = new Product({
-        productName: req.body.productName,
-        price: req.body.price,
-        image: req.body.image
+        key: req.body.key,
+        name: req.body.name,
+        seller: req.body.seller,
+        img: req.body.img,
+        price: req.body.price
     });
     newProduct.save().then(product => {
         res.json(product)
     });
 });
-
 
 router.delete('/:id', (req, res) => {
     Product.findById(req.params.id)
@@ -37,6 +34,11 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(404).json({ success: false }))
 })
 
+router.post('/byKeys', (req, res) => {
+    const productKeys = req.body;
+    Product.find({ "key": { "$in": productKeys } })
+      .then(product => res.json(product))
+  })
 
 
 module.exports = router;

@@ -4,7 +4,6 @@ const cors = require('cors');
 require('dotenv').config()
 
 
-const home = require('./routes/api/home');
 const products = require('./routes/api/products');
 const admins = require('./routes/api/admins');
 const orders = require('./routes/api/orders');
@@ -23,7 +22,6 @@ mongoose.
     connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
-app.use('/api/home', home);
 app.use('/api/products', products);
 app.use('/api/admins', admins);
 app.use('/api/orders', orders);
