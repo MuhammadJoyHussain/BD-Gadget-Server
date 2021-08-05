@@ -35,8 +35,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         address: req.body.address,
         phone: req.body.phone,
-        productName: req.body.productName,
-        price: req.body.price
+        cart: req.body.cart
     });
 
     newItem.save().then(item => res.json(item));

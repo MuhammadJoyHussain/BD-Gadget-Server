@@ -19,12 +19,8 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    productName: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: String,
+    cart: {
+        type: Array,
         required: true
     },
     date: {
