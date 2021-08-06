@@ -3,12 +3,20 @@ const router = express.Router();
 
 const Admin = require('../../Models/Admins');
 
-router.post('/', (req, res) => {
+router.post('/email', (req, res) => {
     Admin.find({email: req.body.email})
         .then(items => {
-            console.log(items);
             res.json(items.length > 0)
         })
+});
+
+router.post('/', (req, res) => {
+    const admin = new Admin({
+        name: req.body.name,
+        email: req.body.email
+    });
+
+    admin.save().then(item => res.json(item));
 });
 
 
